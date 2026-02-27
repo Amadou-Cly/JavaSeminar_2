@@ -34,7 +34,12 @@ public class Student {
 	}
 	//Setters 
 	
-	public void setMatricularNUmber()
+	public void setMatricularNUmber(String inputMatricularNumber) {
+		if((inputMatricularNumber != null)&&(!inputMatricularNumber.isEmpty()) && (inputMatricularNumber.matches("[A-Z]{1}[a-z]{15}[ ]{1}[A-Z]{1}[a-z]{15}")))
+	}
+		matriculaNumber = inputMatricularNumber;
+		}
+	
 	
 	public void setName(String inputName) {
 		if((inputName != null)&&(!inputName.isEmpty()) && (inputName.matches("[A-Z]{1}[a-z]{15}[ ]{1}[A-Z]{1}[a-z]{15}"))) {
@@ -43,6 +48,6 @@ public class Student {
 		name= "Unkwon";
 	}
 	
-	public void 
+
 	
 }
