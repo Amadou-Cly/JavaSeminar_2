@@ -26,7 +26,7 @@ public class Professor {
 		counter++;
 	}
 	public void setName(String inputName) {
-		if((inputName != null)&&(!inputName.isEmpty()) && (inputName.matches("[A-Z]{1}[a-z]{15}[ ]{1}[A-Z]{1}[a-z]{15}"))) {
+		if((inputName != null)&&(!inputName.isEmpty()) && (inputName.matches("[A-Z]{1}[a-z]{2,15}([ ]{1}[A-Z]{1}[a-z]{2,15})?"))) {
 		name = inputName;
 	}else {
 		name= "Unkwon";
@@ -34,7 +34,7 @@ public class Professor {
 	}
 	
 	public void setsurname(String inputSurname) {
-		if((inputSurname != null)&&(!inputSurname.isEmpty()) && (inputSurname.matches("[A-Z]{1}[a-z]{15}[ ]{1}[A-Z]{1}[a-z]{15}"))) {
+		if((inputSurname != null)&&(!inputSurname.isEmpty()) && (inputSurname.matches("[A-Z]{1}[a-z]{2,15}([ ]{1}[A-Z]{1}[a-z]{2,15})?"))) {
 			surname = inputSurname;
 		}else {
 			surname= "Unkwon";
@@ -48,4 +48,23 @@ public class Professor {
 			}
 	}
 	//no arg 
+	public  Professor() {
+		setId();
+		setName("Karina");
+		setsurname("Skirmante");
+		setDegree(Degree.Dr);
+	}
+	public Professor(String inputName, String inputSurname, Degree inputDegree) {
+		setId();
+		setName(inputName);
+		setsurname(inputSurname);
+		setDegree(inputDegree);
+	}
+public String toString() {
+		
+		//Amadou Coulibaly (0) Dr
+		String result = name + " " + surname 
+				+ " (" + id + " )" + degree;
+		return result;
+	}
 }
