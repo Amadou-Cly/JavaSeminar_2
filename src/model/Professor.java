@@ -64,7 +64,7 @@ public String toString() {
 		
 		//Amadou Coulibaly (0) Dr
 		String result = name + " " + surname 
-				+ " (" + id + " )" + degree;
+				+ " (" + id + ")" + degree;
 		return result;
 	}
 }
