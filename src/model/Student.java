@@ -74,9 +74,43 @@ public class Student {
 			inputBirthYear = 2008;
 			}
 	}
-	public void setPassportNumber(inputPassportNumber){
-		
+	public void setPassportNumber(String inputPassportNumber){
+		if((inputPassportNumber != null) && (inputPassportNumber.isEmpty()) && (inputPassportNumber.matches("[A-Z]{2}[0-9]{7}"))) {
+			passportNumber = inputPassportNumber;
+		}else {
+			passportNumber= "Unkwon";
+			}
 	}
+	public void setCountry(String inputCountry) {
+		if((inputCountry != null) && (inputCountry.isEmpty()) && (inputCountry.matches("[A-Z]{15}"))){
+			country =  inputCountry; 
+		}else {
+			country= "Unkwon";}
+		}
+	// no arg constractor 
+	public Student() {
+		setMatricularNUmber(matriculaNumber);
+		setName("Amadou");
+		setsurname("Coulibaly");
+		setFaculty("IT");
+		setBirthYear(2000);
+		setPassportNumber("AA1450876");
+		setCountry("Mali");
+	} 
+	// arg constractor
+	public Student( String inputMatricularNUmber, String inputName, String inputSurname, String inputFaculty, int inputBirthYear, String inputPassportNumber, String inputCountry) {
+		setMatricularNUmber(inputMatricularNUmber);
+		setName(inputName);
+		setsurname(inputSurname);
+		setCountry(inputCountry);
+		setBirthYear(inputBirthYear);
+		setPassportNumber(inputPassportNumber);
+		setCountry(inputCountry);
+	}
+	
+}
+		
+	
 	
 
 	
