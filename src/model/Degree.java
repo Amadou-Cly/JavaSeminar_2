@@ -1,6 +1,6 @@
 package model;
 
 public enum Degree {
-	bachelor, master, PHD
+	bachelor, master, PHD, unkwon;
 
 }
