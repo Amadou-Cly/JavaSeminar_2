@@ -64,4 +64,10 @@ public class Grade {
 		setStudent(inStudent);
 		setCourse(inputCourse);
 	}
+	// 002: A.Coulibaly 2535 Java 95/100
+	public String Tostring() {
+		String result =  id + ": "+ student.getName().charAt(0) + student.getSurname() +student.getMatricularNumber() + course.gettitle()
+				+ " (" + value + "/100) ";
+		return result;
+	}
 }
