@@ -67,7 +67,7 @@ public class Course {
 	}
 	//to string
 	public String toString() {
-		String result = id + ": "+ title + " ("+ creditPoint + ")," + professor.getName().charAt(0) + "." + professor.getSurname();
+		String result = id + ": "+ title + " ("+ creditPoint + "CP)," + professor.getName().charAt(0) + "." + professor.getSurname();
 		return result;
 	}
 	

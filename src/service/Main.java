@@ -1,4 +1,5 @@
 package service;
+import model.Course;
 import model.Degree;
 import model.Professor;
 import model.Student;
@@ -19,7 +20,13 @@ public class Main {
 		Professor prof2 = new Professor("John", "Green", Degree.Dr);
 		System.out.println(prof2);
 		
+		System.out.println("******COURSE*****");
 		
+		Course course1 = new Course("Java",6,prof2);
+		System.out.println(course1);
+		
+		Course course2 = new Course();
+		System.out.println(course2);
 
 	}
 
