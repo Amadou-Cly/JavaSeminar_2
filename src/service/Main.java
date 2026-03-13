@@ -3,6 +3,7 @@ import model.Course;
 import model.Degree;
 import model.Professor;
 import model.Student;
+import model.Grade;
 
 public class Main {
 
@@ -27,6 +28,13 @@ public class Main {
 		
 		Course course2 = new Course();
 		System.out.println(course2);
+		
+		System.out.println("***************GRADE***********");
+		
+		Grade grade1 = new Grade (95,stud1,course1);
+		System.out.println(grade1);
+		
+		
 
 	}
 
