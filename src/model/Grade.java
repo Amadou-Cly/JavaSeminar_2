@@ -61,7 +61,7 @@ public class Grade {
 	public Grade(int inputValue, Student inStudent, Course inputCourse){
 		setId();
 		setValue(inputValue);
-		setStudent(inStudent);
+		setStudent(inStudent); 
 		setCourse(inputCourse);
 	}
 	// 002: A.Coulibaly 2535 Java 95/100
