@@ -31,9 +31,11 @@ public class Main {
 		
 		System.out.println("******PROFESSOR*****");
 		Professor prof1 = new Professor();
-		Professor prof2 = new Professor("John", "Green", Degree.Dr);
+		Professor prof2 = new Professor("John", "Green", Degree.master,"AA1458549");
+		Professor prof3 = new Professor("Estere", "Vitola", Degree.Dr,"LV1586235");
 		professorsList.add(prof1);
 		professorsList.add(prof2);
+		professorsList.add(prof3);
 		System.out.println(professorsList);
 		
 		System.out.println("******COURSE*****");
@@ -64,17 +66,23 @@ public class Main {
 		catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		System.out.println("Couses with filtered by professorId ");
+		System.out.println("**********Couses with filtered by professorId***********");
 		try {
-		ArrayList<Course> result = filterCourseByProfessorId(1001);
+		ArrayList<Course> result = filterCourseByProfessorId(1);
 		System.out.println(result);
 		}
 		catch(Exception e){
 			System.out.println(e.getMessage());
 			
 		}
-		
-		
+		System.out.println("********CRUD FOR PROFESSOR********");
+		try {
+			createNewProfessor("Karlis", "Immers", Degree.Dr, "LV1586235");
+		System.out.println(professorsList);
+		}
+		catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 		
 	
 	}
@@ -137,5 +145,17 @@ public class Main {
 			return filteredCourse;
 		}
 	}
+	//For Filtered grade
 	
+	//Create new professor
+	public static void createNewProfessor(String inputName, String inputSurname, Degree inputDegree,String inputPassportNumber)throws Exception {
+		for(Professor tempP : professorsList) {
+			if(tempP.getPassportNumber().equals(inputPassportNumber)) {
+				Exception myEx = new Exception("Oups there is Professor already enrolled with this ID !");
+				throw myEx;
+			}
+		}
+		Professor newProfessor = new Professor(inputName, inputSurname, inputDegree, inputPassportNumber);
+		professorsList.add(newProfessor);
+	}
 }

@@ -5,6 +5,7 @@ public class Professor {
 	private String name;
 	private String surname;
 	private Degree degree;
+	private String passportNumber;
 	// Helper
 	private static long counter=0;
 	//getter
@@ -19,6 +20,9 @@ public class Professor {
 	}
 	public Degree getDegree(){
 		return degree;
+	}
+	public String getPassportNumber() {
+		return passportNumber;
 	}
 	//Setter
 	public void setId() {
@@ -47,24 +51,33 @@ public class Professor {
 			degree = Degree.unkwon;
 			}
 	}
+	public void setPassportNumber(String inputPassportNumber){
+		if((inputPassportNumber != null) && (!inputPassportNumber.isEmpty()) && (inputPassportNumber.matches("[A-Z]{2}[0-9]{7}"))) {
+			passportNumber = inputPassportNumber;
+		}else {
+			passportNumber= "Unkwon";
+			}
+	}
 	//no arg 
 	public  Professor() {
 		setId();
 		setName("Karina");
 		setsurname("Skirmante");
 		setDegree(Degree.Dr);
+		setPassportNumber("LV2054567");
 	}
-	public Professor(String inputName, String inputSurname, Degree inputDegree) {
+	public Professor(String inputName, String inputSurname, Degree inputDegree,String inputPassportNumber) {
 		setId();
 		setName(inputName);
 		setsurname(inputSurname);
-		setDegree(inputDegree);
+		setDegree(inputDegree); 
+		setPassportNumber(inputPassportNumber);
 	}
 public String toString() {
 		
 		//Amadou Coulibaly (0) Dr
 		String result = name + " " + surname 
-				+ " (" + id + ")" + degree;
+				+ " (" + id + ")" + degree + " " + passportNumber;
 		return result;
 	}
 }
