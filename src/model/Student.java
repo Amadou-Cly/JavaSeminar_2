@@ -106,6 +106,7 @@ public class Student {
 		setBirthYear(inputBirthYear);
 		setPassportNumber(inputPassportNumber);
 		setCountry(inputCountry);
+		setFaculty(inputFaculty);
 	}
 public String toString() {
 		

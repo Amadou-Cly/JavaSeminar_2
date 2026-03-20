@@ -22,7 +22,7 @@ public class Main {
 		// TODO Auto-generated method stub
 			System.out.println("******STUDENTS*****");
 		Student  stud1 = new Student();
-		Student  stud2 = new Student("AC125487", "Abdul", "Aziz","Economie", 2002, "TR4783257", "Latvia");
+		Student  stud2 = new Student("AC125487", "Abdul", "Aziz","ECONOMIE", 2002, "TR4783257", "Latvia");
 		Student stud3 = new Student("AS234567", "Burak", "Sen","IT", 2001, "LV1223456", "Latvia");
 		studentList.add(stud1);
 		studentList.add(stud2);
@@ -50,12 +50,92 @@ public class Main {
 		Grade grade2 = new Grade (60, stud2,course2);
 		GradeList.addAll(Arrays.asList(grade1, grade2));
 		
+		System.out.println("----------PROFESSORS WITH MASTER DEGREE------");
+		filterAllProfessorsWithSpecificDegree(Degree.master);
+		System.out.println("----------PROFESSORS WITH PHD DEGREE------");
+		filterAllProfessorsWithSpecificDegree(Degree.Dr);
+		System.out.println("----------STUDENT BIRTH YEAR >= 2000------");
+		try
+		{
+		ArrayList<Student> result 
+		= filterAllStudentsWhichBirtyearIsLargerThan(2000);
+		System.out.println(result);
+		}
+		catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		System.out.println("Couses with filtered by professorId ");
+		try {
+		ArrayList<Course> result = filterCourseByProfessorId(1001);
+		System.out.println(result);
+		}
+		catch(Exception e){
+			System.out.println(e.getMessage());
+			
+		}
 		
 		
 		
 	
 	}
-
-	
+	public static void filterAllProfessorsWithSpecificDegree(Degree degree) {
+		//TODO check input param
+		//tempP - professor object. In every iteration it is different
+		for(Professor tempP : professorsList) {
+			if(tempP.getDegree().equals(degree)) {
+				System.out.println(tempP);
+			}
+		}
+	}
+	//TODO create filtering function for Students which birthyear is 
+	//larger than 2005
+	public static ArrayList<Student> 
+	filterAllStudentsWhichBirtyearIsLargerThan(int inputBirthyearThreshold) throws Exception
+	{
+		//TODO check input param
+		
+		ArrayList<Student> filteredStudents = new ArrayList<Student>();
+		for(Student tempS : studentList) {
+			if(tempS.getBirthYear() >= inputBirthyearThreshold) {
+				filteredStudents.add(tempS);
+			}
+		}
+		
+		
+		if(filteredStudents.isEmpty()) {
+			Exception myExc = new Exception
+				("There is no student which birth year is larger than " + inputBirthyearThreshold);
+			throw myExc;
+		}
+		else
+		{
+			return filteredStudents;
+		}
+		
+		//John, Sarah, Anne
+		
+				//1. iteration -> tempS = John
+				//2. iteration -> tempS = Sarah
+				//3. iteration -> tempS = Anne
+	}
+	public static ArrayList<Course> filterCourseByProfessorId(long inputId)throws Exception{
+		ArrayList<Course> filteredCourse = new ArrayList<Course>();
+		for (Course tempC : courseList) {
+			if(tempC.getProfessor().getId() == inputId) {
+				filteredCourse.add(tempC);
+			}
+		}
+		
+		if(filteredCourse.isEmpty()) {
+			Exception myExc = new Exception
+				("There is no course which "
+						+ "leading professor is with id " + inputId);
+			throw myExc;
+		}
+		else
+		{
+			return filteredCourse;
+		}
+	}
 	
 }
