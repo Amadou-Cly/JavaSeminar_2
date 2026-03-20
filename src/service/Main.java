@@ -77,7 +77,13 @@ public class Main {
 		}
 		System.out.println("********CRUD FOR PROFESSOR********");
 		try {
-			createNewProfessor("Karlis", "Immers", Degree.Dr, "LV1586235");
+			createNewProfessor("Karlis", "Immers", Degree.Dr, "LV1586225");
+		System.out.println(professorsList);
+		
+		System.out.println(getProfessorById(1));
+		updateProfessorById(0, "Katrina", "Skirmante", Degree.unkwon);
+		System.out.println(professorsList);
+		deleteByProfId(2);
 		System.out.println(professorsList);
 		}
 		catch (Exception e) {
@@ -155,7 +161,35 @@ public class Main {
 				throw myEx;
 			}
 		}
-		Professor newProfessor = new Professor(inputName, inputSurname, inputDegree, inputPassportNumber);
+		Professor newProfessor = new Professor(inputName, inputSurname, inputDegree, inputPassportNumber) ;
 		professorsList.add(newProfessor);
+	}
+	// Retrieve by id
+	public static Professor getProfessorById(long id) throws Exception{
+		if (id < 0) {
+			Exception myex = new Exception("Id must be positive or 0");
+			throw myex;
+		}
+		for (Professor tempP : professorsList) {
+			if(tempP.getId() == id){
+				return tempP;
+			}
+		}
+		
+		Exception myEx = new Exception("No such professor with id "+ id);
+		throw myEx;	
+	}
+	// Update by id
+	public static void updateProfessorById(long inputId, String inputName, String inputSurname, Degree inputDegree) throws Exception{
+		Professor profUpdate = getProfessorById(inputId);
+		profUpdate.setName(inputName);
+		profUpdate.setsurname(inputSurname);
+		profUpdate.setDegree(inputDegree);
+	}
+	//Delete by id
+	public static void deleteByProfId(long inputId) throws Exception {
+		Professor deleteByProfId = getProfessorById(inputId);
+		professorsList.remove(deleteByProfId);
+		
 	}
 }
